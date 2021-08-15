@@ -1,4 +1,4 @@
-export const COLORS: string[] = [
+export const COLORS = [
   "black",
   "brown",
   "red",
@@ -9,8 +9,10 @@ export const COLORS: string[] = [
   "violet",
   "grey",
   "white",
-];
+] as const;
 
-export const colorCode = (color: string) => {
+type Color = typeof COLORS[number];
+
+export const colorCode = (color: Color): number => {
   return COLORS.findIndex((item) => item === color);
 };
